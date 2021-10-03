@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.cncsl.ft.mybatis.mapper.CountryMapper">
+
+    <resultMap id="BaseResultMap" type="pers.cncsl.ft.mybatis.entity.Country">
+        <id column="primary_code" jdbcType="VARCHAR" property="primaryCode"/>
+        <result column="country_name" jdbcType="VARCHAR" property="countryName"/>
+        <result column="capital" jdbcType="INTEGER" property="capital"/>
+        <result column="secondary_code" jdbcType="VARCHAR" property="secondaryCode"/>
+    </resultMap>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT primary_code, country_name, capital, secondary_code
+        FROM country
+        WHERE primary_code = #{primaryCode, jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByCodeOrName" resultMap="BaseResultMap">
+        SELECT primary_code, country_name, capital, secondary_code
+        FROM country
+        <where>
+            <choose>
+                <when test="primaryKey != null">
+                    and primary_code = #{primaryKey, jdbcType=VARCHAR}
+                </when>
+                <otherwise>
+                    and country_name = #{countryName, jdbcType=VARCHAR}
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+    <select id="selectByPrimaryArray" parameterType="java.util.Collection"
+            resultType="pers.cncsl.ft.mybatis.entity.Country">
+        SELECT primary_code, country_name, capital, secondary_code
+        FROM country
+        <where>
+            <if test="array != null and array.length gt 0">
+                primary_code IN
+                <foreach collection="array" open="(" close=")" separator="," item="code">
+                    #{code}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByPrimaryCodeList" parameterType="java.util.Collection"
+            resultType="pers.cncsl.ft.mybatis.entity.Country">
+        SELECT primary_code, country_name, capital, secondary_code
+        FROM country
+        <where>
+            <if test="list != null and !list.isEmpty()">
+                primary_code IN
+                <foreach collection="list" open="(" close=")" separator="," item="code">
+                    #{code}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByPrimaryCodeSet" parameterType="java.util.Collection"
+            resultType="pers.cncsl.ft.mybatis.entity.Country">
+        SELECT primary_code, country_name, capital, secondary_code
+        FROM country
+        <where>
+            <if test="collection != null and !collection.isEmpty()">
+                primary_code IN
+                <foreach collection="collection" open="(" close=")" separator="," item="code">
+                    #{code}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <update id="updateByPrimaryKeySelective" parameterType="pers.cncsl.ft.mybatis.entity.Country">
+        UPDATE country
+        <set>
+            <if test="countryName != null">
+                country_name = #{countryName, jdbcType=VARCHAR},
+            </if>
+            <if test="capital != null">
+                capital = #{capital, jdbcType=INTEGER},
+            </if>
+            <if test="secondaryCode != null">
+                secondary_code = #{secondaryCode, jdbcType=VARCHAR},
+            </if>
+        </set>
+        WHERE primary_code = #{primaryCode, jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateByPrimaryKeyWithMap" parameterType="java.util.Map">
+        UPDATE country
+        SET
+        <foreach collection="params" item="value" index="field" separator=",">
+            ${field} = #{value}
+        </foreach>
+        WHERE primary_code = #{primaryKey}
+    </update>
+
+</mapper>
