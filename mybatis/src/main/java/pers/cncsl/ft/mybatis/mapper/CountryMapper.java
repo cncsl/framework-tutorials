@@ -25,7 +25,7 @@ public interface CountryMapper {
     /**
      * 根据主键或国家名查询一条记录
      *
-     * @param primaryKey 主键
+     * @param primaryKey  主键
      * @param countryName 国家名
      * @return 查询结果
      */
@@ -64,9 +64,10 @@ public interface CountryMapper {
     int updateByPrimaryKeySelective(Country entity);
 
     /**
-     * 根据主键和入参的其他数据更新一条记录，入参为 null 的字段不变更
+     * 根据主键和入参的其他数据更新一条记录，仅变更指定的 params 的 key 指定的数据
      *
      * @param primaryKey 主键
+     * @param params     待更新字段
      * @return 更新结果
      */
     int updateByPrimaryKeyWithMap(@Param("primaryKey") String primaryKey, @Param("params") Map<String, String> params);

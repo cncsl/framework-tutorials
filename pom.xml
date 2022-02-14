@@ -34,22 +34,25 @@
     <dependencyManagement>
 
         <dependencies>
-            <!--child modules-->
+            <!--common utils start-->
             <dependency>
-                <groupId>pers.cncsl.ft</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${project.version}</version>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.12.0</version>
             </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.22</version>
+            </dependency>
+            <!--common utils end-->
 
-            <!--starters-->
+            <!--library for child modules-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>2.2.0</version>
             </dependency>
-
-            <!--utils-->
-
 
         </dependencies>
 
