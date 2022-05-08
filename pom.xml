@@ -9,19 +9,13 @@
         <relativePath/>
     </parent>
 
-    <groupId>pers.cncsl</groupId>
-    <artifactId>ft</artifactId>
+    <groupId>cncsl</groupId>
+    <artifactId>framework-utorials</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
     <name>Framework Tutorials</name>
     <description>Java 后端开发常见框架学习</description>
-    <contributors>
-        <contributor>
-            <name>cncsl</name>
-            <email>justitacsl@outlook.com</email>
-        </contributor>
-    </contributors>
 
     <modules>
         <module>mybatis</module>
