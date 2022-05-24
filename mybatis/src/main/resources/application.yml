@@ -29,7 +29,6 @@ spring:
 logging:
   level:
     root: info
-    pers:
-      cncsl:
-        ft:
-          mybatis: DEBUG
+    cncsl:
+      ft:
+        mybatis: DEBUG

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>cncsl</groupId>
         <artifactId>framework-utorials</artifactId>
@@ -9,9 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mybatis</artifactId>
+    <artifactId>mapstruct</artifactId>
 
-    <name>Mybatis Tutorials</name>
+    <name>MapStruct Tutorials</name>
+
+    <properties>
+        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -30,12 +34,12 @@
         </dependency>
         <!--common utils end-->
 
-        <!--special libraries start-->
+        <!--special libraries-->
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
         </dependency>
-        <!--special libraries end-->
 
         <!---test dependency-->
         <dependency>

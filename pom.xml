@@ -19,6 +19,7 @@
 
     <modules>
         <module>mybatis</module>
+        <module>mapstruct</module>
     </modules>
 
     <properties>

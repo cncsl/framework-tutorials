@@ -1,8 +1,8 @@
-package pers.cncsl.ft.mybatis.mapper;
+package cncsl.ft.mybatis.mapper;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-import pers.cncsl.ft.mybatis.entity.Country;
+import cncsl.ft.mybatis.entity.Country;
 
 import java.util.List;
 import java.util.Map;

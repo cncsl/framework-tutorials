@@ -1,4 +1,4 @@
-package pers.cncsl.ft.mybatis.entity;
+package cncsl.ft.mybatis.entity;
 
 import java.io.Serializable;
 
