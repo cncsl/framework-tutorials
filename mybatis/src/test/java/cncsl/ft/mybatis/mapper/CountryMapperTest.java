@@ -1,10 +1,12 @@
 package cncsl.ft.mybatis.mapper;
 
+import cncsl.ft.mybatis.entity.Country;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import cncsl.ft.mybatis.entity.Country;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -52,6 +54,8 @@ class CountryMapperTest {
     }
 
     @Test
+    @Rollback
+    @Transactional
     void updateByPrimaryKeySelective() {
         Country beforeUpdate = mapper.selectByPrimaryKey("CHN");
         log.debug("beforeUpdate: {}", beforeUpdate);
@@ -67,6 +71,8 @@ class CountryMapperTest {
     }
 
     @Test
+    @Rollback
+    @Transactional
     void updateByPrimaryKeyWithMap() {
         Country beforeUpdate = mapper.selectByPrimaryKey("CHN");
         log.debug("beforeUpdate: {}", beforeUpdate);

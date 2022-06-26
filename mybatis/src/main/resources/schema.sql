@@ -13,7 +13,7 @@ CREATE TABLE country_language
     is_official      ENUM ('T', 'F') DEFAULT 'F' NOT NULL,
     percentage       DECIMAL(4, 1)   DEFAULT 0.0 NOT NULL,
     PRIMARY KEY (country_code, country_language),
-    INDEX idx_country_primary_code (country_code)
+    INDEX idx_country_language_country_code (country_code)
 );
 
 CREATE TABLE city
@@ -22,5 +22,6 @@ CREATE TABLE city
     city_name     VARCHAR(35) DEFAULT '' NOT NULL,
     country_code  VARCHAR(3)  DEFAULT '' NOT NULL,
     city_district VARCHAR(20) DEFAULT '' NOT NULL,
-    info          JSON                   NULL
+    info          JSON                   NULL,
+    INDEX idx_city_country_code (country_code)
 );
