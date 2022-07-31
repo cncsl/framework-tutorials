@@ -1,15 +1,24 @@
 package cncsl.ft.mapstruct.entity.constant;
 
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
 public enum Gender {
 
     /**
      * 男
      */
-    MALE,
+    MALE(1),
 
     /**
      * 女
      */
-    FEMALE
+    FEMALE(2);
+
+    private final Integer code;
 
 }

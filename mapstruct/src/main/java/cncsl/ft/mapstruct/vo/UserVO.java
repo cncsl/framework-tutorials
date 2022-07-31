@@ -2,25 +2,40 @@ package cncsl.ft.mapstruct.vo;
 
 import lombok.Data;
 
-import java.util.Set;
-
+/**
+ * 用户信息VO
+ */
 @Data
 public class UserVO {
 
+    /**
+     * UID
+     */
     private String id;
 
-    private String username;
-
+    /**
+     * 昵称
+     */
     private String displayName;
 
+    /**
+     * 邮箱
+     */
     private String email;
 
-    private String gender;
+    /**
+     * 性别
+     */
+    private Integer gender;
 
-    private Set<String> authorities;
-
+    /**
+     * 创建时间
+     */
     private String createTime;
 
+    /**
+     * 更新时间
+     */
     private String updateTime;
 
 }

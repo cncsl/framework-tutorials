@@ -34,6 +34,7 @@
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
+            <scope>compile</scope>
         </dependency>
 
         <!---test dependency-->
